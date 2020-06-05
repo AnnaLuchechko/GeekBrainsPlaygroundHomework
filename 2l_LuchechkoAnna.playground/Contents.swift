@@ -35,14 +35,21 @@ func fulldividedBy3(numberB: Int) -> String {
 print("\n------------------------- Задание 3 -------------------------")
 print("3. Создать возрастающий массив из 100 чисел.")
 
-let array = [Int](22...122)
+let numberArray = [Int](0...100)
 
-print(array)
+print(numberArray)
 
 print("\n------------------------- Задание 4 -------------------------")
 print("4. Удалить из этого массива все четные числа и все числа, которые не делятся на 3.")
 
+let filteredArray = arrayEdit(numberArray: numberArray)
 
+print(filteredArray)
+
+func arrayEdit(numberArray: [Int]) -> [Int] {
+    let newArray = numberArray.filter {($0 % 2 != 0) && ($0 % 3 != 0)}
+    return newArray
+}
 print("\n------------------------- Задание 5 -------------------------")
 print("5. * Написать функцию, которая добавляет в массив новое число Фибоначчи, и добавить при помощи нее 100 элементов..")
 
