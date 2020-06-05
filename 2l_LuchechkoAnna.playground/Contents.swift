@@ -19,7 +19,7 @@ func evenNumber(numberA: Int) -> String {
 print("\n------------------------- Задание 2 -------------------------")
 print("2. Написать функцию, которая определяет, делится ли число без остатка на 3.")
 
-let numberB: Int = 0
+let numberB: Int = 12
 let isNumberB = fulldividedBy3(numberB: numberB)
 
 print(isNumberB)
@@ -52,6 +52,30 @@ func arrayEdit(numberArray: [Int]) -> [Int] {
 }
 print("\n------------------------- Задание 5 -------------------------")
 print("5. * Написать функцию, которая добавляет в массив новое число Фибоначчи, и добавить при помощи нее 100 элементов..")
+
+let step: Int = 100
+let x1: Double = 0
+let x2: Double = 1
+let result = fibonacci(x1: x1, x2: x2, step: step)
+print(result)
+
+func fibonacci(x1: Double, x2: Double, step: Int) -> [Double] {
+    var x1: Double = x1
+    var x2: Double = x2
+    var x3: Double = 0
+    var fibonacciArray = [Double]()
+    
+    fibonacciArray.append(x1)
+    fibonacciArray.append(x2)
+    
+    for _ in 0..<step {
+        x3 = x1 + x2
+        fibonacciArray.append(x3)
+        x1 = x2
+        x2 = x3
+    }
+    return fibonacciArray
+}
 
 print("\n------------------------- Задание 6 -------------------------")
 print("6. * Заполнить массив из 100 элементов различными простыми числами.\nНатуральное число, большее единицы, называется простым, если оно делится только на себя и на единицу. \nДля нахождения всех простых чисел не больше заданного числа n, следуя методу Эратосфена, нужно выполнить следующие шаги:")
