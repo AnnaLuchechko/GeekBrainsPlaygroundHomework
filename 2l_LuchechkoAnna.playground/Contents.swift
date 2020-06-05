@@ -78,9 +78,26 @@ func fibonacci(x1: Double, x2: Double, step: Int) -> [Double] {
 }
 
 print("\n------------------------- Задание 6 -------------------------")
-print("6. * Заполнить массив из 100 элементов различными простыми числами.\nНатуральное число, большее единицы, называется простым, если оно делится только на себя и на единицу. \nДля нахождения всех простых чисел не больше заданного числа n, следуя методу Эратосфена, нужно выполнить следующие шаги:")
-print("a. Выписать подряд все целые числа от двух до n (2, 3, 4, ..., n).")
-print("b. Пусть переменная p изначально равна двум — первому простому числу.")
-print("c. Зачеркнуть в списке числа от 2p до n, считая шагами по p (это будут числа, кратные p: 2p, 3p, 4p, ...).")
-print("d. Найти первое не зачёркнутое число в списке, большее, чем p, и присвоить значению переменной p это число.")
-print("e. Повторять шаги c и d, пока возможно.")
+print("6. * Заполнить массив из 100 элементов различными простыми числами.")
+
+print(getSimpleNumbers(simpleCount: 100))
+
+func getSimpleNumbers(simpleCount: Int) -> [Int] {
+    var simpleArray: [Int] = [2, 3]
+    var number: Int = simpleArray.last!
+    var isNumberSimple: Bool = true
+    
+    while simpleArray.count != simpleCount {
+        for index in stride(from: simpleArray.count - 1, through: 0, by: -1) {
+            if number % simpleArray[index] == 0 {
+                isNumberSimple = false
+            }
+        }
+        if isNumberSimple == true {
+            simpleArray.append(number)
+        }
+        number += 1
+        isNumberSimple = true
+    }
+    return simpleArray
+}
